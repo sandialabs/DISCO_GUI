@@ -1,0 +1,20 @@
+close all;clear all; clc
+%{
+Version Release Notes:
+
+14 Aug 20 - This sandbox tests the feasability of using an overfilled
+            calibration image where certain pupils are clipped.
+
+%}
+
+
+raw2 = imread('C:\Users\asmith2\Documents\GitKraken\DISCO_Master\disco_imageprocessor\sample_files\LabCaptures\B200812_calibration.tif');
+
+pad = 500;      % Pixels to pad
+horizPad = nan(size(raw2,1),pad); % Column padding
+imPad = [horizPad,raw2,horizPad];
+vertPad = nan(pad, size(imPad,2));% row Padding  
+imPad = [vertPad;imPad;vertPad];
+
+figure; imshow(imPad)
+
